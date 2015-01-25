@@ -1,0 +1,28 @@
+.containner
+  .row
+    .col-md-2
+    .col-md-8
+      - unless notice.nil?
+        p
+          .alert.alert-success#notice
+            = notice
+
+      dl.dl-horizontal
+        dt
+          = Article.human_attribute_name('article.title')
+        dd
+          = @article.title
+        dt
+          = Article.human_attribute_name('article.author')
+        dd
+          = @article.author
+        dt 
+          = Article.human_attribute_name('article.source')
+        dd
+          = @article.source
+        dt
+          = Article.human_attribute_name('article_body.body')
+        dd
+          = @article.body.html_safe
+          
+    .col-md-2

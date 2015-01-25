@@ -1,0 +1,15 @@
+= simple_form_for(@article,:html=>{:class=>'form-horizontal'}) do |f|
+  - if @article.errors.any?
+    #error_explanation
+      h3 = "保存#{t('activerecord.models.article')}的时候，出现在了#{@article.errors.count}个错误:"
+      ul
+        - @article.errors.full_messages.each do |message|
+          li = message
+  .form-inputs
+    = f.input :title
+    = f.input :author
+    = f.input :source
+    = f.simple_fields_for :article_body do |body_fields|
+      = body_fields.input :body,:as=>:kindeditor
+  .form-actions
+    = f.button :submit 

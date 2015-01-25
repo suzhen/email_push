@@ -1,0 +1,16 @@
+= simple_form_for(@client,:html=>{:class=>'form-horizontal'}) do |f|
+  - if @client.errors.any?
+    #error_explanation
+      h3 = "保存#{t('activerecord.models.client')}的时候，出现在了#{@client.errors.count}个错误:"
+      ul
+        - @client.errors.full_messages.each do |message|
+          li = message
+  .form-inputs
+    = f.input :name
+    = f.input :email
+    = f.input :tel
+    = f.input :mobile
+    = f.input :address
+    = f.association :groups,as: :check_boxes
+  .form-actions
+    = f.button :submit 

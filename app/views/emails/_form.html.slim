@@ -1,0 +1,14 @@
+= simple_form_for(@email,:html=>{:class=>'form-horizontal'}) do |f|
+  - if @email.errors.any?
+    #error_explanation
+      h3 = "保存#{t('activerecord.models.email')}的时候，出现在了#{@email.errors.count}个错误:"    
+      ul
+        - @email.errors.full_messages.each do |message|
+          li = message
+  .form-inputs
+    = f.input :subject
+    = f.association :articles,as: :check_boxes
+    = f.association :matrix
+    = f.association :groups,as: :check_boxes
+  .form-actions
+    = f.button :submit 

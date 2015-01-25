@@ -1,0 +1,19 @@
+.containner
+  .row
+    .col-md-2
+    .col-md-8
+      - unless notice.nil?
+        p
+          .alert.alert-success#notice
+            = notice
+
+      dl.dl-horizontal
+        dt
+          = Group.human_attribute_name('group.name')
+        dd
+          = @group.name
+        dt
+          = Group.human_attribute_name('group.clients')
+        dd
+          = @group.clients.map(&:name).join(",")
+    .col-md-2

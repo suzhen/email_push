@@ -1,0 +1,12 @@
+= simple_form_for(@matrix,:html=>{:class=>'form-horizontal'}) do |f|
+  - if @matrix.errors.any?
+    #error_explanation
+      h3 = "保存#{t('activerecord.models.matrix')}的时候，出现在了#{@matrix.errors.count}个错误:"
+      ul
+        - @matrix.errors.full_messages.each do |message|
+          li = message
+  .form-inputs
+    = f.input :name
+    = f.input :content,as: :text,:input_html => {rows:15}
+  .form-actions
+    = f.button :submit 

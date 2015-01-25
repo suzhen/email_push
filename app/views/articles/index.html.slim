@@ -1,0 +1,23 @@
+.containner
+  .row
+    .col-md-1
+    .col-md-10
+      table.table.table-striped
+        thead
+          tr
+            th = Article.human_attribute_name('article.title')
+            th = Article.human_attribute_name('article.author')
+            th = Article.human_attribute_name('article.source')
+            th = Article.human_attribute_name('article.created_at')
+            th 
+            th
+        tbody
+          - @articles.each do |article|
+            tr
+              td = article.title 
+              td = article.author
+              td = article.source
+              td = article.created_at.to_s(:db)
+              td = link_to '修改',edit_article_path(article)
+              td = link_to '查看',article
+    .col-md-1

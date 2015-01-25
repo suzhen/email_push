@@ -1,0 +1,43 @@
+.containner
+  .row
+    .col-md-2
+    .col-md-8
+      - unless notice.nil?
+        p
+          .alert.alert-success#notice
+            = notice
+
+      dl.dl-horizontal
+        dt
+          = Client.human_attribute_name('client.name')
+        dd
+          = @client.name
+        dt
+          = Client.human_attribute_name('client.title')
+        dd
+          = @client.title
+        dt 
+          = Client.human_attribute_name('client.email')
+        dd
+          = @client.email
+        dt
+          = Client.human_attribute_name('client.tel')
+        dd
+          = @client.tel
+        dt
+          = Client.human_attribute_name('client.mobile')
+        dd
+          = @client.mobile
+        dt
+          = Client.human_attribute_name('client.address')
+        dd
+          = @client.address 
+        dt 
+          = Client.human_attribute_name('client.groups')
+        dd 
+          ul.list-unstyled
+            - @client.groups.each do |group|
+              li
+                = group.name
+    .col-md-2
+

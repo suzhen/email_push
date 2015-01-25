@@ -1,0 +1,34 @@
+.containner
+  .row
+    .col-md-2
+    .col-md-8
+      - unless notice.nil?
+        p
+          .alert.alert-success#notice
+            = notice
+
+      dl.dl-horizontal
+        dt
+          = Email.human_attribute_name('email.subject')
+        dd
+          = @email.subject
+        dt
+          = Email.human_attribute_name('email.matrix')
+        dd
+          = @email.matrix.name
+        dt 
+          = Email.human_attribute_name('email.articles')
+        dd 
+          ul.list-unstyled
+            - @email.articles.each do |article|
+              li
+                = article.title
+        dt 
+          = Email.human_attribute_name('email.groups')
+        dd
+          = @email.groups.map(&:name).join(",")
+        dt
+          = Email.human_attribute_name('email.body')
+        dd
+          = @email.body.html_safe
+    .col-md-2

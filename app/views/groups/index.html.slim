@@ -1,0 +1,17 @@
+.containner
+  .row
+    .col-md-1
+    .col-md-10
+      table.table.table-striped
+        thead
+          tr
+            th = Group.human_attribute_name('group.name')
+            th
+            th
+        tbody
+          - @groups.each do |group|
+            tr
+              td = group.name
+              td = link_to '修改',edit_group_path(group)
+              td = link_to '查看',group
+    .col-md-1 

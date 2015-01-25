@@ -1,0 +1,55 @@
+.containner
+  .row
+    .col-md-1
+    .col-md-10
+
+      .modal.fade.bs-send-modal-sm#myModal*{'tabindex'=>"-1",'role'=>"dialog",'aria-labelledby'=>"mySmallModalLabel",'aria-hidden'=>"true"}
+        .modal-dialog.modal-sm
+          .modal-content
+            .modal-header
+              button.close*{'type'=>'button','data-dismiss'=>'modal','aria-label'=>"Close"}
+                span*{'aria-hidden'=>'true'}
+                  |&times;
+              h4.modal-title#mySmallModalLabel
+                |发送邮件
+            .modal-body#mySmallModalBody
+              
+
+            .modal-footer
+              button.btn.btn-default*{'type'=>"button","data-dismiss"=>"modal"}
+                | 关闭
+              button.btn.btn-primary*{'type'=>"button",'onclick'=>"send_mail()" } 
+                | 发送
+
+
+
+      table.table.table-striped
+        thead
+          tr
+            th = Email.human_attribute_name('email.subject')
+            th = Email.human_attribute_name('email.matrix')
+            th = Email.human_attribute_name('email.created_at')
+            th = Email.human_attribute_name('email.groups')
+            th = Email.human_attribute_name('email.sent_at')
+            th
+            th
+            th
+        tbody
+          - @emails.each do |email|
+            tr
+              td = email.subject 
+              td = email.matrix.name
+              td = l(email.created_at, :format => :short)
+              td = email.group_names
+              td = l(email.sent_at, :format => :short) unless email.sent_at.nil?
+              td = link_to '修改',edit_email_path(email)
+              td = link_to '查看',email
+              td 
+                - unless email.delivered?
+                  button.btn.btn-primary*{'type'=>'button','onclick'=>"alert_send_mail('#{email.id}','#{email.subject}','#{email.group_names}','#{email.receivers.count}')"}
+                    | 发送邮件
+
+              
+      input#emailId*{'type'=>"hidden"}         
+    .col-md-1
+

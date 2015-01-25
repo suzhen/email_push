@@ -1,0 +1,19 @@
+.containner
+  .row
+    .col-md-1
+    .col-md-10
+      table.table.table-striped
+        thead
+          tr
+            th = Matrix.human_attribute_name('matrix.name')
+            th = Matrix.human_attribute_name('matrix.created_at')
+            th
+            th
+        tbody
+          - @matrices.each do |matrix|
+            tr
+              td = matrix.name 
+              td = matrix.created_at.to_s(:db)
+              td = link_to '修改',edit_matrix_path(matrix)
+              td = link_to '查看',matrix
+    .col-md-1

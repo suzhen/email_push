@@ -1,0 +1,15 @@
+.containner
+  .row
+    .col-md-2
+    .col-md-8
+      - unless notice.nil?
+        p
+          .alert.alert-success#notice
+            = notice
+
+      dl.dl-horizontal
+        dt
+          = Matrix.human_attribute_name('matrix.name')
+        dd
+          = @matrix.name
+    .col-md-2
