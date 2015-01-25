@@ -48,6 +48,8 @@ gem "chinese_pinyin"
 gem 'sidekiq'
 gem "settingslogic"
 
+gem 'thin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
