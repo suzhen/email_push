@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'nokogiri','1.6.5' -- --use-system-libraries
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
