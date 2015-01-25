@@ -14,3 +14,5 @@
 /public/uploads
 .ruby-gemset
 .ruby-version
+/config/database.yml
+/config/settings.yml

@@ -15,6 +15,6 @@ production:
   <<: *defaults
   redis:
     <<: *redis_defaults
-    server: '223.4.30.53'
+    server: ''
     port: 6379
-    password: ccsm123456
+    password: 

@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: email_push_development
+
+test:
+  <<: *default
+  database: email_push_test
+
+production:
+  <<: *default
+  database: email_push_production
+  username: email_push
+  password: <%= ENV['EMAIL_PUSH_DATABASE_PASSWORD'] %>
