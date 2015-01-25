@@ -67,9 +67,9 @@ namespace :deploy do
 
   end
 
-  # after :published, :boot_sidekiq
+  after :published, :boot_sidekiq
 
-  # after :published, :restart_thin
+  after :published, :restart_thin
 
 
 end
