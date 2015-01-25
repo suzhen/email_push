@@ -1,11 +1,11 @@
-require "database_cleaner"
+# require "database_cleaner"
 
-namespace :db do
-  task :clear => :environment do
+# namespace :db do
+#   task :clear => :environment do
 
-    DatabaseCleaner.strategy = :truncation#, {:except => %w[industries offers]} 
+#     DatabaseCleaner.strategy = :truncation#, {:except => %w[industries offers]} 
 
-    DatabaseCleaner.clean
+#     DatabaseCleaner.clean
 
-  end
-end
+#   end
+# end
