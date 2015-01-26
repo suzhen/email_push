@@ -67,22 +67,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host:'cep.nandor.com', port: '80' }
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'cep.nandor.com',
-    user_name:            'nandor.email.test',
+    address:              'smtp.163.com',
+    port:                 25,
+    domain:               'localhost:3000',
+    user_name:            'nandor_test',
     password:             'nandor123456',
     authentication:       :plain,
-    enable_starttls_auto: true  
-  }
-  # config.action_mailer.smtp_settings = {
-  #   address:              'smtp.cbballiance.com',
-  #   port:                 25,
-  #   domain:               'cep.nandor.com:80',
-  #   user_name:            'info',
-  #   password:             'CCsmemail001',
-  #   authentication:       :login,
-  #   enable_starttls_auto: true  }
+    enable_starttls_auto: true  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
