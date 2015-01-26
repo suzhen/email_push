@@ -53,7 +53,7 @@ namespace :deploy do
     on roles(:web), in: :sequence, wait: 3 do
       within release_path do
         execute "./closedsidekiq"
-        execute :bundle,"exec sidekiq -e staging -d -L log/sidekiq.log"
+        execute :bundle,"exec sidekiq -e production -d -L log/sidekiq.log"
       end
     end
   end
