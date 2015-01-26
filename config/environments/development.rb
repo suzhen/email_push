@@ -47,6 +47,16 @@ Rails.application.configure do
     password:             'nandor123456',
     authentication:       :plain,
     enable_starttls_auto: true  }
+  # config.action_mailer.smtp_settings = {
+  #   address:              'smtp.cbballiance.com',
+  #   port:                 25,
+  #   domain:               'localhost:3000',
+  #   user_name:            'info',
+  #   password:             'CCsmemail001',
+  #   authentication:       :plain,
+  #   enable_starttls_auto: true  }
+
+  
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
