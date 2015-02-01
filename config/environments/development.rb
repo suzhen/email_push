@@ -38,6 +38,7 @@ Rails.application.configure do
 
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host:'localhost', port: '3000' }
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
@@ -48,13 +49,20 @@ Rails.application.configure do
     authentication:       :plain,
     enable_starttls_auto: true  }
   # config.action_mailer.smtp_settings = {
+  #   address:              'smtp.mxhichina.com',
+  #   port:                 25,
+  #   domain:               'localhost:3000',
+  #   user_name:            'newsletter@cbballiance.com',
+  #   password:             'CCsm123456',
+  #   authentication:       :login,
+  #   enable_starttls_auto: true  }
+  # config.action_mailer.smtp_settings = {
   #   address:              'smtp.cbballiance.com',
   #   port:                 25,
   #   domain:               'localhost:3000',
-  #   user_name:            'info',
-  #   password:             'CCsmemail001',
-  #   authentication:       :plain,
-  #   enable_starttls_auto: true  }
+  #   user_name:            'newsletter',
+  #   password:             'CCsm123456',
+  #   authentication:       :login  }
 
   
 
