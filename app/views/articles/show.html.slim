@@ -21,6 +21,10 @@
         dd
           = @article.source
         dt
+          = Article.human_attribute_name('article.summary')
+        dd 
+          = @article.summary
+        dt
           = Article.human_attribute_name('article_body.body')
         dd
           = @article.body.html_safe
