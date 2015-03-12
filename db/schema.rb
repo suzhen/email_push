@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123090137) do
+ActiveRecord::Schema.define(version: 20150312082059) do
 
   create_table "article_bodies", force: :cascade do |t|
     t.string   "caption",        limit: 255
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150123090137) do
   add_index "article_bodies", ["article_id"], name: "index_article_bodies_on_article_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",            limit: 255,             null: false
+    t.string   "title",            limit: 255,               null: false
     t.string   "author",           limit: 255
     t.string   "editor",           limit: 255
     t.string   "source",           limit: 255
@@ -34,10 +34,11 @@ ActiveRecord::Schema.define(version: 20150123090137) do
     t.string   "meta_description", limit: 255
     t.string   "meta_keywords",    limit: 255
     t.datetime "available_on"
-    t.integer  "position",         limit: 4,   default: 0
+    t.integer  "position",         limit: 4,     default: 0
     t.datetime "deleted_at"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.text     "summary",          limit: 65535
   end
 
   add_index "articles", ["available_on"], name: "index_articles_on_available_on", using: :btree

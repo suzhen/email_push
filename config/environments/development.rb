@@ -48,22 +48,6 @@ Rails.application.configure do
     password:             'nandor123456',
     authentication:       :plain,
     enable_starttls_auto: true  }
-  # config.action_mailer.smtp_settings = {
-  #   address:              'smtp.mxhichina.com',
-  #   port:                 25,
-  #   domain:               'localhost:3000',
-  #   user_name:            'newsletter@cbballiance.com',
-  #   password:             'CCsm123456',
-  #   authentication:       :login,
-  #   enable_starttls_auto: true  }
-  # config.action_mailer.smtp_settings = {
-  #   address:              'smtp.cbballiance.com',
-  #   port:                 25,
-  #   domain:               'localhost:3000',
-  #   user_name:            'newsletter',
-  #   password:             'CCsm123456',
-  #   authentication:       :login  }
-
   
 
   # Raises error for missing translations

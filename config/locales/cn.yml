@@ -215,6 +215,7 @@ cn:
         clients: '客户'
       article:
         title: '标题'
+        summary: '摘要'
         created_at: '创建时间'
         slug: '标识字符'
         author: '作者'

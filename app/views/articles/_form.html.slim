@@ -9,6 +9,7 @@
     = f.input :title
     = f.input :author
     = f.input :source
+    = f.input :summary
     = f.simple_fields_for :article_body do |body_fields|
       = body_fields.input :body,:as=>:kindeditor
   .form-actions
