@@ -13,6 +13,10 @@
         dd
           = @article.title
         dt
+          = Article.human_attribute_name('article.category')
+        dd
+          = @article.category.name unless @article.category.nil?
+        dt
           = Article.human_attribute_name('article.author')
         dd
           = @article.author

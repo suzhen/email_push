@@ -26,6 +26,10 @@ cn:
     email_actions:
       new: "创建邮件"
       index: "邮件列表"
+    categories: "栏目管理"
+    category_actions:
+      new: "创建栏目"
+      index: "栏目列表"
 
   "FALSE": '否'
   "false": '否'
@@ -201,7 +205,11 @@ cn:
       article: "文章"
       matrix: "模版"
       email: "邮件"
+      category: "栏目"
     attributes:
+      category:
+        name: '名称'
+        slug: '标记'
       client:
         name: '姓名'
         title: '职位'
@@ -221,6 +229,7 @@ cn:
         author: '作者'
         editor: '编辑'
         source: '来源'
+        category: '栏目'
       article_body:
         body: '文章内容'
       matrix:

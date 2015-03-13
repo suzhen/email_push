@@ -1,0 +1,11 @@
+= simple_form_for(@category,:html=>{:class=>'form-horizontal'}) do |f|
+  - if @category.errors.any?
+    #error_explanation
+      h3 = "保存#{t('activerecord.models.category')}的时候，出现在了#{@category.errors.count}个错误:"
+      ul
+        - @category.errors.full_messages.each do |message|
+          li = message
+  .form-inputs
+    = f.input :name
+  .form-actions
+    = f.button :submit

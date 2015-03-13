@@ -1,0 +1,19 @@
+.containner
+  .row
+    .col-md-1
+    .col-md-10
+      table.table.table-striped
+        thead
+          tr
+            th = Category.human_attribute_name('category.name')
+            th = Category.human_attribute_name('category.slug')
+            th 
+            th
+        tbody
+          - @categories.each do |category|
+            tr
+              td = category.name 
+              td = category.slug
+              td = link_to '修改',edit_category_path(category)
+              td = link_to '查看',category
+    .col-md-1

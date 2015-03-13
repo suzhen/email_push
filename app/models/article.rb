@@ -2,6 +2,8 @@ class Article < Base
   
   has_one :article_body , inverse_of: :article, autosave: true,dependent: :destroy
 
+  belongs_to :category, inverse_of: :articles,touch: true
+
   validates :title, presence: true
   validates :slug, length: { minimum: 3 }
   validates :slug, uniqueness: true

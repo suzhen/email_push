@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.preload(:category).all
   end
 
   def new
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :author, :editor, :source, :summary, {article_body_attributes: :body})
+      params.require(:article).permit(:title, :author, :editor, :source, :summary, :category_id, {article_body_attributes: :body})
     end
 
 end
