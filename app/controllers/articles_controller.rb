@@ -19,7 +19,20 @@ class ArticlesController < ApplicationController
 
 
   def create
-    @article = Article.new(article_params)
+   
+    if !article_params["image_file"].nil?
+
+      image_file = article_params["image_file"] 
+
+      @article = Article.new(article_params.reject! {| key, value | key == "image_file" })
+
+      @article.update_image(image_file)
+    
+    else
+
+      @article = Article.new(article_params)
+
+    end
 
     @article.article_body.body = article_params["article_body_attributes"]["body"]
 
@@ -36,12 +49,31 @@ class ArticlesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @article.update(article_params)
+
+      if !article_params["image_file"].nil?
+
+        @article.update_image(article_params["image_file"] )
+
+        @article.image.save
+
+        rst =  @article.update(article_params.reject! {| key, value | key == "image_file" })
+
+        
+
+      else
+
+       rst =  @article.update(article_params)
+     
+      end
+
+      if rst
         format.html { redirect_to @article, notice: '文章更新成功。' }
       else
         format.html { render :edit }
       end
+    
     end
+
   end
 
 
@@ -55,7 +87,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :author, :editor, :source, :summary, :category_id, {article_body_attributes: :body})
+      params.require(:article).permit(:title, :author, :editor, :source, :summary, :category_id, :image_file, {article_body_attributes: :body})
     end
 
 end

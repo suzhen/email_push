@@ -29,6 +29,10 @@
         dd 
           = @article.summary
         dt
+          = Article.human_attribute_name('article.image')
+        dd
+          = raw "<img src='http://#{@article.image.attachment_url}!image1' />" unless @article.image.nil?
+        dt
           = Article.human_attribute_name('article_body.body')
         dd
           = @article.body.html_safe

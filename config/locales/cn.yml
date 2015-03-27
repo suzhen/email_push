@@ -230,6 +230,8 @@ cn:
         editor: '编辑'
         source: '来源'
         category: '栏目'
+        image: '图片'
+        image_file: '图片'
       article_body:
         body: '文章内容'
       matrix:

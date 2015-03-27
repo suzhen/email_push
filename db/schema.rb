@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312090429) do
+ActiveRecord::Schema.define(version: 20150313083530) do
 
   create_table "article_bodies", force: :cascade do |t|
     t.string   "caption",        limit: 255
@@ -47,6 +47,22 @@ ActiveRecord::Schema.define(version: 20150312090429) do
   add_index "articles", ["deleted_at"], name: "index_articles_on_deleted_at", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
   add_index "articles", ["title"], name: "index_articles_on_title", using: :btree
+
+  create_table "assets", force: :cascade do |t|
+    t.integer  "attachment_file_size",    limit: 4
+    t.integer  "attachment_width",        limit: 4
+    t.integer  "attachment_height",       limit: 4
+    t.string   "attachment",              limit: 255
+    t.string   "attachment_content_type", limit: 255
+    t.string   "attachment_url",          limit: 255
+    t.integer  "position",                limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "viewable_id",             limit: 4
+    t.string   "viewable_type",           limit: 255
+  end
+
+  add_index "assets", ["viewable_type", "viewable_id"], name: "index_assets_on_viewable_type_and_viewable_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255

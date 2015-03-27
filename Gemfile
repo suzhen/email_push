@@ -51,6 +51,10 @@ gem "settingslogic"
 
 gem 'thin'
 
+gem "carrierwave"
+gem 'carrierwave-upyun'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
