@@ -8,5 +8,6 @@
   .form-inputs
     = f.input :name
     = f.input :content,as: :text,:input_html => {rows:15}
+    = f.input :image_file,as: :file
   .form-actions
     = f.button :submit 

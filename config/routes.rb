@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   post 'emails/:id/send' => 'emails#deliver'
 
+  get 'emails/:id/content' => "emails#content"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

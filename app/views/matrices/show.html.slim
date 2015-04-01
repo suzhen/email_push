@@ -12,4 +12,15 @@
           = Matrix.human_attribute_name('matrix.name')
         dd
           = @matrix.name
+
+      table.table.table-striped
+        thead
+          tr
+            th 
+            th
+        tbody
+          - @images.each do |image|
+            tr
+              td = raw "<img src='http://#{image.attachment_url}' width='100' height='100' />"
+              td = "http://#{image.attachment_url}"
     .col-md-2

@@ -11,7 +11,32 @@ class Email < Base
   belongs_to :matrix, inverse_of: :emails
 
   def generate_content
-    self.body = Liquid::Template.parse(self.matrix.content).render 'articles' => Article.find(self.articles.map(&:id))
+    category_hash = Hash[Category.all.map{|category| [category.slug,category.name]}]
+
+    
+    articles_hash = {}
+
+    articles = Article.find(self.articles.map(&:id))
+
+    articles.each do |article|
+
+      category_slug = "#{article.category.slug}_articles"
+
+      if articles_hash[category_slug].nil? 
+
+        articles_hash[category_slug] = []
+
+      end
+
+      articles_hash[category_slug] << article
+
+    end
+
+    # puts category_hash
+
+    # puts articles_hash
+
+    self.body = Liquid::Template.parse(self.matrix.content).render articles_hash.merge(category_hash)
   end
 
   before_save :generate_content

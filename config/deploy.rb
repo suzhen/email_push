@@ -22,7 +22,7 @@ set :bundle_gemfile, -> { release_path.join('Gemfile') }
 # Default value for :scm is :git
 set :scm, :git
 
-set :chruby_ruby, 'ruby-2.1.2'
+set :chruby_ruby, 'ruby-2.2.1'
 
 set :bundle_binstubs, nil
 

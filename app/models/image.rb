@@ -2,6 +2,8 @@ class Image < Asset
 
   belongs_to :article,inverse_of: :image,touch:true
 
+  belongs_to :matrix,inverse_of: :images,touch:true
+
   attr_accessor :uploader_secure_token
 
   mount_uploader :attachment, ImageUploader

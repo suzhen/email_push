@@ -1,6 +1,6 @@
 class EmailsController < ApplicationController
 
-  before_action :set_email, only: [:show, :edit, :update, :destroy, :deliver]
+  before_action :set_email, only: [:show, :edit, :update, :destroy, :deliver,:content]
 
   def index
     @emails = Email.all
@@ -14,6 +14,10 @@ class EmailsController < ApplicationController
   end
 
   def edit
+  end
+
+  def content
+    render :layout => false
   end
 
   def create

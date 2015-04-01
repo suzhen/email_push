@@ -27,6 +27,10 @@ class Category < Base
   end
 
 
+  def self.with_slug(slug)
+    Category.find_by_slug(slug).name
+  end
+
 
   has_many :articles, inverse_of: :category
 

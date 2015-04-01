@@ -91,6 +91,10 @@ class Article < Base
   def to_liquid
     {
      'title'=>self.title,
+     'summary'=>self.summary,
+     'image_url'=>"http://#{self.image.attachment_url}",
+     'image_url1'=>"http://#{self.image.attachment_url}!image1",
+     'image_url2'=>"http://#{self.image.attachment_url}!image2",
      'formatted_html'=>self.body 
     }
   end
