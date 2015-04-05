@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313083530) do
+ActiveRecord::Schema.define(version: 20150405162443) do
 
   create_table "article_bodies", force: :cascade do |t|
     t.string   "caption",        limit: 255
@@ -114,10 +114,10 @@ ActiveRecord::Schema.define(version: 20150313083530) do
 
   create_table "emails", force: :cascade do |t|
     t.string   "subject",    limit: 255
-    t.text     "body",       limit: 65535
+    t.text     "body",       limit: 4294967295
     t.datetime "sent_at"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "matrix_id",  limit: 4
   end
 
