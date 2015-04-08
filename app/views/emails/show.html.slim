@@ -30,5 +30,5 @@
         dt
           = Email.human_attribute_name('email.body')
         dd
-
+          <a onclick="window.open('/emails/#{@email.id}/content','newwindow')">查看</a>
     .col-md-2

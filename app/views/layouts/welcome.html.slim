@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title = I18n.t('layout.title')
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag "application", media: "all"
+    = csrf_meta_tags
+    /[if lt IE 7]
+      css:
+        #wrap {display:table;height:100%;width:100%}
+  body#login
+    #login-wrapper
+      #login-top
+        h2 电子刊系统
+      #login-content
+        - unless flash[:alert].blank?   
+          .alert
+            strong 警告       
+            = flash[:alert]    
+        - unless flash[:notice].blank?  
+          .alert.alert-info
+            = flash[:notice]   
+        = yield

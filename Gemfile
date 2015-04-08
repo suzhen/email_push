@@ -49,6 +49,8 @@ gem "chinese_pinyin"
 gem 'sidekiq'
 gem "settingslogic"
 
+gem 'devise'
+
 gem 'thin'
 
 gem "carrierwave"

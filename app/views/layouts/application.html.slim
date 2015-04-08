@@ -43,6 +43,8 @@ html
                                         nav_dropdown_item("matrices","index",matrices_path)) 
 
             = nav_dropdown(["emails"],nav_dropdown_item("emails","new",new_email_path),
-                                        nav_dropdown_item("emails","index",emails_path))       
+                                        nav_dropdown_item("emails","index",emails_path))  
+          p.navbar-text.pull-right
+            = link_to("退出",destroy_user_session_path,:class=>"navbar-link",:method=>"DELETE")     
    
     = yield

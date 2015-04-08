@@ -2,6 +2,9 @@ class EmailsController < ApplicationController
 
   before_action :set_email, only: [:show, :edit, :update, :destroy, :deliver,:content]
 
+
+  before_filter :authenticate_user!
+  
   def index
     @emails = Email.all
   end

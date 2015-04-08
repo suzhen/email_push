@@ -1,6 +1,8 @@
 class MatricesController < ApplicationController
   before_action :set_matrix, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!
+  
   def index
     @matrices = Matrix.all
   end
