@@ -7,8 +7,9 @@
           li = message
   .form-inputs
     = f.input :subject
-    = f.association :articles,as: :check_boxes
-    = f.association :matrix
+    - if @email.new_record?
+      = f.association :articles,as: :check_boxes
+      = f.association :matrix
     = f.association :groups,as: :check_boxes
   .form-actions
     = f.button :submit 

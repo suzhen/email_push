@@ -11,6 +11,7 @@ class Email < Base
   belongs_to :matrix, inverse_of: :emails
 
   def generate_content
+    puts "*******"
     category_hash = Hash[Category.all.map{|category| [category.slug,category.name]}]
 
     
@@ -32,14 +33,10 @@ class Email < Base
 
     end
 
-    # puts category_hash
-
-    # puts articles_hash
-
     self.body = Liquid::Template.parse(self.matrix.content).render articles_hash.merge(category_hash)
   end
 
-  before_save :generate_content
+  before_create :generate_content
 
   def receivers
     groups.map(&:client_emails).flatten.uniq

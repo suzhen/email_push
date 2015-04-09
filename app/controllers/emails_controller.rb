@@ -66,7 +66,7 @@ class EmailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def email_params
-      params.require(:email).permit(:subject, :matrix_id, :article_ids=>[],:group_ids=>[])
+      params.require(:email).permit(:subject,:body, :matrix_id, :article_ids=>[],:group_ids=>[])
     end
 
 

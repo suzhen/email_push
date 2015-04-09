@@ -30,5 +30,36 @@
         dt
           = Email.human_attribute_name('email.body')
         dd
-          <a onclick="window.open('/emails/#{@email.id}/content','newwindow')">查看</a>
+          button.btn.btn-primary*{'type'=>"button",'onclick'=>"window.open('/emails/#{@email.id}/content','newwindow')"}
+            |查看内容
+          |&nbsp;&nbsp;&nbsp;
+          - unless @email.delivered?
+            button.btn.btn-primary*{'type'=>"button",'data-toggle'=>"modal",'data-target'=>".bs-update-html-modal-lg"}
+              | 修改内容
+
     .col-md-2
+      .modal.fade.bs-update-html-modal-lg*{'tabindex'=>"-1",'role'=>"dialog",'aria-labelledby'=>"myLargeModalLabel",'aria-hidden'=>"true"}
+        .modal-dialog.modal-lg
+          .modal-content
+            = simple_form_for(@email,:html=>{:class=>'form-horizontal'}) do |f|
+              .modal-header
+                button.close*{'type'=>"button",'data-dismiss'=>"modal",'aria-label'=>"Close"}
+                  span*{'aria-hidden'=>"true"}
+                    |&times;
+                h4.modal-title#updateEmailModalLabel
+                  | 修改电子刊内容
+              .modal-body
+                .container-fluid
+                  .row
+                    .col-md-12
+                      = f.input :body,as: :text,:input_html => {rows:30}
+              .modal-footer
+                button.btn.btn-default*{'type'=>"button",'data-dismiss'=>"modal"}
+                  |关闭
+                button.btn.btn-primary*{'type'=>"submit"}
+                  |保存修改
+
+
+
+
+
