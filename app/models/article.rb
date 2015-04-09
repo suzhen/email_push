@@ -95,7 +95,9 @@ class Article < Base
      'image_url'=>"http://#{self.image.attachment_url}",
      'image_url1'=>"http://#{self.image.attachment_url}!image1",
      'image_url2'=>"http://#{self.image.attachment_url}!image2",
-     'formatted_html'=>self.body 
+     'formatted_html'=>self.body,
+     'id'=>self.id,
+     'slug'=>self.slug
     }
   end
 
