@@ -20,5 +20,7 @@
               td = client.groups.map(&:name).join(",")
               td = link_to '修改',edit_client_path(client)
               td = link_to '查看',client
+
+      = paginate @clients, :theme => 'twitter-bootstrap-3'
     .col-md-1
 

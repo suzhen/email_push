@@ -11,7 +11,6 @@ class Email < Base
   belongs_to :matrix, inverse_of: :emails
 
   def generate_content
-    puts "*******"
     category_hash = Hash[Category.all.map{|category| [category.slug,category.name]}]
 
     

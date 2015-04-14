@@ -56,6 +56,9 @@ gem 'thin'
 gem "carrierwave"
 gem 'carrierwave-upyun'
 
+#paging
+gem 'kaminari'                 
+gem 'bootstrap-kaminari-views' 
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

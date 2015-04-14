@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408035047) do
+ActiveRecord::Schema.define(version: 20150414104534) do
 
   create_table "article_bodies", force: :cascade do |t|
     t.string   "caption",        limit: 255
@@ -91,8 +91,11 @@ ActiveRecord::Schema.define(version: 20150408035047) do
     t.string   "title",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "company",    limit: 255
+    t.string   "postcode",   limit: 255
   end
 
+  add_index "clients", ["company"], name: "index_clients_on_company", using: :btree
   add_index "clients", ["email"], name: "index_clients_on_email", using: :btree
   add_index "clients", ["name"], name: "index_clients_on_name", using: :btree
 
