@@ -13,6 +13,10 @@
         dd
           = @client.name
         dt
+          = Client.human_attribute_name('client.company')
+        dd
+          = @client.company        
+        dt
           = Client.human_attribute_name('client.title')
         dd
           = @client.title
@@ -32,6 +36,10 @@
           = Client.human_attribute_name('client.address')
         dd
           = @client.address 
+        dt
+          = Client.human_attribute_name('client.postcode')
+        dd
+          = @client.postcode
         dt 
           = Client.human_attribute_name('client.groups')
         dd 

@@ -7,10 +7,12 @@
           li = message
   .form-inputs
     = f.input :name
+    = f.input :company
     = f.input :email
     = f.input :tel
     = f.input :mobile
     = f.input :address
+    = f.input :postcode
     = f.association :groups,as: :check_boxes
   .form-actions
     = f.button :submit 

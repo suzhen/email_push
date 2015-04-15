@@ -2,10 +2,21 @@
   .row
     .col-md-1
     .col-md-10
+      form.form-inline*{'action'=>"/clients","accept-charset"=>"UTF-8","method"=>"get"}
+        .form-group
+          input.form-control*{'type'=>"text",'placeholder'=>"半角逗号或者空格隔开",'name'=>"keys",'value'=>"#{params['keys']}"}
+          |&nbsp;&nbsp;&nbsp;&nbsp;
+          button.btn.btn-default*{'type'=>"submit"}
+            | 查 询
+    .col-md-1
+  .row
+    .col-md-1
+    .col-md-10      
       table.table.table-striped
         thead
           tr
             th = Client.human_attribute_name('client.name')
+            th = Client.human_attribute_name('client.company')
             th = Client.human_attribute_name('client.title')
             th = Client.human_attribute_name('client.email')
             th = Client.human_attribute_name('client.groups')
@@ -15,9 +26,10 @@
           - @clients.each do |client|
             tr
               td = client.name 
+              td = client.company
               td = client.title
               td = client.email
-              td = client.groups.map(&:name).join(",")
+              td = client.group_names
               td = link_to '修改',edit_client_path(client)
               td = link_to '查看',client
 

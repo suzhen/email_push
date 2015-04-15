@@ -17,6 +17,8 @@ gem 'mini_magick'
 
 gem "liquid"
 
+gem 'roo'
+
 gem 'simple_form'
 
 gem 'rails_kindeditor'

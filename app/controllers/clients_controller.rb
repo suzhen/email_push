@@ -4,7 +4,11 @@ class ClientsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @clients = Client.page params[:page]
+    if params['keys'].present?
+      @clients = Client.in_name_or_email_or_company_or_mobile(params['keys']).preload(:groups).page params[:page]
+    else
+      @clients = Client.preload(:groups).page params[:page]
+    end  
   end
 
   def show
