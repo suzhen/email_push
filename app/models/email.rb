@@ -38,7 +38,7 @@ class Email < Base
   before_create :generate_content
 
   def receivers
-    groups.map(&:client_emails).flatten.uniq
+    groups.map(&:client_emails).flatten.uniq.reject{|email| email.blank? }
   end
 
   def group_names
