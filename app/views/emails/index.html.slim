@@ -42,7 +42,7 @@
               td = l(email.created_at, :format => :short)
               td = email.group_names
               td = l(email.sent_at, :format => :short) unless email.sent_at.nil?
-              td = link_to '修改',edit_email_path(email)
+              td = link_to '修改',edit_email_path(email) if email.sent_at.nil?
               td = link_to '查看',email
               td 
                 - unless email.delivered?
