@@ -1,11 +1,9 @@
 class ApplicationMailer < ActionMailer::Base
 
   if Rails.env == "production"
-    default from: "nandor_test@163.com"
-    # default from: "newsletter@cbballiance.com"
+    default from: "info@cbballiance.com.cn"
   else
-    default from: "nandor_test@163.com"
-     # default from: "newsletter@cbballiance.com"
+    default from: "test@cbballiance.com.cn"
   end
   
   # layout 'mailer'

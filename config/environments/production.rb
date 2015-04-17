@@ -69,11 +69,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host:'cep.nandor.com', port: '80' }
   config.action_mailer.smtp_settings = {
-    address:              'smtp.163.com',
+    address:              'smtp.qiye.163.com',
     port:                 25,
     domain:               'cep.nandor.com',
-    user_name:            'nandor_test',
-    password:             'nandor123456',
+    user_name:            'info@cbballiance.com.cn',
+    password:             'ccsm001info',
     authentication:       :login,
     enable_starttls_auto: true  }
 

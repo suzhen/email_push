@@ -41,11 +41,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host:'localhost', port: '3000' }
   config.action_mailer.smtp_settings = {
-    address:              'smtp.163.com',
+    address:              'smtp.qiye.163.com',
     port:                 25,
     domain:               'localhost:3000',
-    user_name:            'nandor_test',
-    password:             'nandor123456',
+    user_name:            'test@cbballiance.com.cn',
+    password:             'ccsm001test',
     authentication:       :login,
     enable_starttls_auto: true  }
 
