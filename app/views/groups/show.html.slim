@@ -12,8 +12,25 @@
           = Group.human_attribute_name('group.name')
         dd
           = @group.name
-        dt
-          = Group.human_attribute_name('group.clients')
-        dd
-          = @group.clients.map(&:name).join(",")
+      table.table.table-striped
+        thead
+          tr
+            th = Client.human_attribute_name('client.name')
+            th = Client.human_attribute_name('client.company')
+            th = Client.human_attribute_name('client.title')
+            th = Client.human_attribute_name('client.email')
+            th = Client.human_attribute_name('client.mobile')
+            th = Client.human_attribute_name('client.groups')
+            th 
+            th
+        tbody
+          - @group.clients.each do |client|
+            tr
+              td = client.name 
+              td = client.company
+              td = client.title
+              td = client.email
+              td = client.mobile
+              td = client.group_names
+              td = link_to '查看',client
     .col-md-2

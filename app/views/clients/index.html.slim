@@ -19,6 +19,7 @@
             th = Client.human_attribute_name('client.company')
             th = Client.human_attribute_name('client.title')
             th = Client.human_attribute_name('client.email')
+            th = Client.human_attribute_name('client.mobile')
             th = Client.human_attribute_name('client.groups')
             th 
             th
@@ -29,6 +30,7 @@
               td = client.company
               td = client.title
               td = client.email
+              td = client.mobile
               td = client.group_names
               td = link_to '修改',edit_client_path(client)
               td = link_to '查看',client
