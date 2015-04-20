@@ -1,7 +1,7 @@
 .containner
   .row
-    .col-md-2
-    .col-md-8
+    .col-md-1
+    .col-md-10
       - unless notice.nil?
         p
           .alert.alert-success#notice
@@ -33,4 +33,4 @@
               td = client.mobile
               td = client.group_names
               td = link_to '查看',client
-    .col-md-2
+    .col-md-1
