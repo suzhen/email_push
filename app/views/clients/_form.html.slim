@@ -1,3 +1,25 @@
+script src="/assets/tag-it.min.js"
+link rel="stylesheet" type="text/css" href="/assets/jquery.tagit.css"
+javascript:
+  var assignedTags = [];  
+  $(document).ready(function() {  
+     $("#clientTags").tagit({
+        beforeTagAdded: function(event, ui){
+          assignedTags.push(ui.tagLabel)
+        },
+        afterTagAdded: function(event, ui){
+          $('#client_tag_list').val(assignedTags.join(','));
+        },
+        afterTagRemoved: function(event, ui){
+          $('#client_tag_list').val(assignedTags.join(','));
+        },
+        beforeTagRemoved: function(event, ui){
+          assignedTags = $.grep(assignedTags, function(el){
+            return el != ui.tagLabel;
+          });
+        }
+     }); 
+  });
 = simple_form_for(@client,:html=>{:class=>'form-horizontal'}) do |f|
   - if @client.errors.any?
     #error_explanation
@@ -14,6 +36,15 @@
     = f.input :mobile
     = f.input :address
     = f.input :postcode
+    = f.input :tag_list,as: :hidden
+    .form-group.string.optional
+      label.string.optional.control-label
+        | 标签
+      ul#clientTags*{'style':"width:100%;margin-left:0px"}
+        - @client.tag_list.each do |tag|
+          li = tag
     = f.association :groups,as: :check_boxes
   .form-actions
-    = f.button :submit 
+    = f.button :submit
+
+  

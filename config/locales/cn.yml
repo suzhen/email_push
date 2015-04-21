@@ -220,6 +220,7 @@ cn:
         company: '公司'
         postcode: '邮编'
         groups: '分组'
+        tag_list: '标签'
       group:
         name: '组名'
         clients: '客户'
