@@ -47,6 +47,17 @@ class GroupsController < ApplicationController
   end
 
 
+  def destroy
+
+    @group.destroy
+
+    respond_to do |format|
+      format.html { redirect_to groups_url }
+    end
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group

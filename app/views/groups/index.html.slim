@@ -8,10 +8,12 @@
             th = Group.human_attribute_name('group.name')
             th
             th
+            th
         tbody
           - @groups.each do |group|
             tr
               td = group.name
               td = link_to '修改',edit_group_path(group)
               td = link_to '查看',group
+              td = link_to '删除',group, :method => :delete, :data => { :confirm => '确定删除吗？' }
     .col-md-1 
