@@ -49,15 +49,13 @@ class ClientsController < ApplicationController
     end
   end
 
-  # DELETE /matrices/1
-  # DELETE /matrices/1.json
-  # def destroy
-  #   @matrix.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to matrices_url, notice: 'Matrix was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @client.destroy
+    respond_to do |format|
+      format.html { redirect_to clients_url, notice: '客户删除成功。' }
+      format.json { head :no_content }
+    end
+  end
 
 
 

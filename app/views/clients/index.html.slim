@@ -24,6 +24,7 @@
             th = Client.human_attribute_name('client.groups')
             th 
             th
+            th
         tbody
           - @clients.each_with_index do |client,index|
             tr
@@ -36,6 +37,7 @@
               td = client.group_names
               td = link_to '修改',edit_client_path(client)
               td = link_to '查看',client
+              td = link_to '删除',client, :method => :delete, :data => { :confirm => '确定删除吗？' }
 
       = paginate @clients, :theme => 'twitter-bootstrap-3'
     .col-md-1
