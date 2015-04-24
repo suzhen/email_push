@@ -15,6 +15,10 @@ class ClientsController < ApplicationController
   end
 
   def edit
+    # session["client_refere"] = request.referer if request.referer != request.original_url
+
+    # puts "***"
+    # puts session["client_refere"]
   end
 
 
@@ -38,7 +42,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to @client, notice: '客户更新成功。' }
+        format.html { redirect_to @client, notice: '客户更新成功。'}
       else
         format.html { render :edit }
       end

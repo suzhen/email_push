@@ -29,7 +29,7 @@ javascript:
           li = message
   .form-inputs
     = f.input :name
-    = f.input :company
+    = f.input :company 
     = f.input :title
     = f.input :email
     = f.input :tel
@@ -37,6 +37,7 @@ javascript:
     = f.input :address
     = f.input :postcode
     = f.input :tag_list,as: :hidden
+    / = hidden_field_tag('client_refere', session[:client_refere]) 
     .form-group.string.optional
       label.string.optional.control-label
         | 标签

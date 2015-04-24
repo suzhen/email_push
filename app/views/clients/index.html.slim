@@ -15,6 +15,7 @@
       table.table.table-striped
         thead
           tr
+            td
             th = Client.human_attribute_name('client.name')
             th = Client.human_attribute_name('client.company')
             th = Client.human_attribute_name('client.title')
@@ -24,8 +25,9 @@
             th 
             th
         tbody
-          - @clients.each do |client|
+          - @clients.each_with_index do |client,index|
             tr
+              td = (index+1)+(@clients.current_page-1)*@clients.length
               td = client.name 
               td = client.company
               td = client.title
