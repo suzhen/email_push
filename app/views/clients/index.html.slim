@@ -27,7 +27,7 @@
         tbody
           - @clients.each_with_index do |client,index|
             tr
-              td = (index+1)+(@clients.current_page-1)*@clients.length
+              td = (index+1)+(@clients.current_page-1)*25
               td = client.name 
               td = client.company
               td = client.title
