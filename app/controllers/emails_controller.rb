@@ -36,6 +36,17 @@ class EmailsController < ApplicationController
   end
 
 
+  def destroy
+    @email.destroy
+    respond_to do |format|
+      format.html { redirect_to emails_url, notice: '邮件删除成功。' }
+      format.json { head :no_content }
+    end
+  end
+
+
+
+
   def update
     respond_to do |format|
       if @email.update(email_params)

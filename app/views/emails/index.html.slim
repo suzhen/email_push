@@ -34,6 +34,7 @@
             th
             th
             th
+            th
         tbody
           - @emails.each do |email|
             tr
@@ -44,6 +45,7 @@
               td = l(email.sent_at, :format => :short) unless email.sent_at.nil?
               td = link_to '修改',edit_email_path(email) if email.sent_at.nil?
               td = link_to '查看',email
+              td = link_to '删除',email,:method => :delete, :data => { :confirm => '确定删除吗？' } if email.sent_at.nil?
               td 
                 - unless email.delivered?
                   button.btn.btn-primary*{'type'=>'button','onclick'=>"alert_send_mail('#{email.id}','#{email.subject}','#{email.group_names}','#{email.receivers.count}')"}

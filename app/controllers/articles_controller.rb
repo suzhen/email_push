@@ -5,6 +5,10 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
+
+    puts params
+
+
     @articles = Article.preload(:category).page params[:page]
   end
 

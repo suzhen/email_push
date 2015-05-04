@@ -8,7 +8,19 @@
   .form-inputs
     = f.input :subject
     - if @email.new_record?
-      = f.association :articles,as: :check_boxes
+      .form-group.radio_buttons.optional
+        label.radio_buttons.optional.control-label
+          | 选择刊数
+        span.radio.radio-inline
+          label*{'for':"article_volume_0"}
+            input.radio_buttons.optional*{'type':'radio','value':"0",'name':'article_volume','id':"article_volume_0","checked":"checked"}
+              | 不分期
+        - Article.volume_ids.each do |volume_id|
+          span.radio.radio-inline
+            label*{'for':"article_volume_#{volume_id}"}
+              input.radio_buttons.optional*{'type':'radio','value':"#{volume_id}",'name':'article_volume','id':"article_volume_#{volume_id}"}
+                | #{volume_id}期
+      = f.association :articles,collection:Article.with_volume(0),as: :check_boxes
       = f.association :matrix
     = f.association :groups,as: :check_boxes
   .form-actions

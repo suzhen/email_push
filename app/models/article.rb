@@ -101,6 +101,17 @@ class Article < Base
     }
   end
 
+
+  def self.volume_ids
+    pluck(:volume).compact!.uniq.sort
+  end
+
+
+  def self.with_volume(volume)
+    volume = nil if volume == "0" or volume == 0
+    Article.where(:volume=>volume)
+  end
+
   private
 
     def ensure_body

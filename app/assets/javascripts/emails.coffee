@@ -20,6 +20,17 @@
   })
 
 
+$ ->
+  $("input[name='article_volume']").click ->
+    volume  = $(this).val()
+    $.ajax({
+      url: "/articles",
+      data: {volume: volume,display: 'mini'},
+      type: 'GET',
+      success: ( data ) -> 
+         alert("此功能正在开发中。")      
+    })
 
+    
   
 
