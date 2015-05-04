@@ -2,8 +2,9 @@ script src="/libs/tag-it.min.js"
 link rel="stylesheet" type="text/css" href="/libs/jquery.tagit.css"
 javascript:
   var assignedTags = [];  
-  $(document).ready(function() {  
-     $("#clientTags").tagit({
+  $(document).on('page:load',function() { 
+    $(document).trigger('ready');
+    $("#clientTags").tagit({
         beforeTagAdded: function(event, ui){
           assignedTags.push(ui.tagLabel)
         },
@@ -41,7 +42,7 @@ javascript:
     .form-group.string.optional
       label.string.optional.control-label
         | 标签
-      ul#clientTags*{'style':"width:100%;margin-left:0px"}
+      ul#clientTags*{'style':"width:100%;margin-left:0px",'data-no-turbolink':1}
         - @client.tag_list.each do |tag|
           li = tag
     = f.association :groups,as: :check_boxes

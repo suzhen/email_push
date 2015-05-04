@@ -61,6 +61,7 @@ namespace :deploy do
   task :restart_thin  do
     on roles(:web),in: :sequence, wait: 3 do
       within release_path do
+        execute "rake kindeditor:assets"
         execute :bundle,"exec thin restart -C /var/www/email_push/shared/config/boot_app.yml"
       end
     end
