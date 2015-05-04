@@ -2,8 +2,7 @@ script src="/libs/tag-it.min.js"
 link rel="stylesheet" type="text/css" href="/libs/jquery.tagit.css"
 javascript:
   var assignedTags = [];  
-  $(document).on('page:load',function() { 
-    $(document).trigger('ready');
+  $(document).ready(function() { 
     $("#clientTags").tagit({
         beforeTagAdded: function(event, ui){
           assignedTags.push(ui.tagLabel)
