@@ -25,6 +25,10 @@
         dd
           = @article.source
         dt
+          = Article.human_attribute_name('article.volume')
+        dd
+          = @article.volume
+        dt
           = Article.human_attribute_name('article.summary')
         dd 
           = @article.summary

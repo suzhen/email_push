@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @articles = Article.preload(:category).all
+    @articles = Article.preload(:category).page params[:page]
   end
 
   def new
@@ -89,7 +89,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :author, :editor, :source, :summary, :category_id, :image_file, {article_body_attributes: :body})
+      params.require(:article).permit(:title, :author, :editor, :source, :summary, :category_id, :volume, :image_file, {article_body_attributes: :body})
     end
 
 end

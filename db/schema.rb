@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420112310) do
+ActiveRecord::Schema.define(version: 20150504104137) do
 
   create_table "article_bodies", force: :cascade do |t|
     t.string   "caption",        limit: 255
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150420112310) do
     t.datetime "updated_at",                                 null: false
     t.text     "summary",          limit: 65535
     t.integer  "category_id",      limit: 4
+    t.integer  "volume",           limit: 4
   end
 
   add_index "articles", ["available_on"], name: "index_articles_on_available_on", using: :btree
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150420112310) do
   add_index "articles", ["deleted_at"], name: "index_articles_on_deleted_at", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
   add_index "articles", ["title"], name: "index_articles_on_title", using: :btree
+  add_index "articles", ["volume"], name: "index_articles_on_volume", using: :btree
 
   create_table "assets", force: :cascade do |t|
     t.integer  "attachment_file_size",    limit: 4

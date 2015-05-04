@@ -235,6 +235,7 @@ cn:
         category: '栏目'
         image: '图片'
         image_file: '图片'
+        volume: '期数'
       article_body:
         body: '文章内容'
       matrix:

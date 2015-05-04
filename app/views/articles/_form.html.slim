@@ -10,6 +10,7 @@
     = f.input :author
     = f.input :source
     = f.input :summary
+    = f.input :volume,collection: 1..24
     = f.association :category
     = f.input :image_file,as: :file
     = f.simple_fields_for :article_body do |body_fields|

@@ -5,21 +5,26 @@
       table.table.table-striped
         thead
           tr
+            th
             th = Article.human_attribute_name('article.title')
             th = Article.human_attribute_name('article.category')
+            th = Article.human_attribute_name('article.volume')
             th = Article.human_attribute_name('article.author')
             th = Article.human_attribute_name('article.source')
             th = Article.human_attribute_name('article.created_at')
             th 
             th
         tbody
-          - @articles.each do |article|
+          - @articles.each_with_index do |article,index|
             tr
+              td = (index+1)+(@articles.current_page-1)*25
               td = article.title 
               td = article.category.name unless article.category.nil?
+              td = article.volume
               td = article.author
               td = article.source
               td = article.created_at.to_s(:db)
               td = link_to '修改',edit_article_path(article)
               td = link_to '查看',article
+      = paginate @articles, :theme => 'twitter-bootstrap-3'
     .col-md-1
