@@ -28,7 +28,7 @@ $ ->
       data: {volume: volume,display: 'mini'},
       type: 'GET',
       success: ( data ) -> 
-         alert("此功能正在开发中。")      
+         $("#articles").html(data)     
     })
 
     

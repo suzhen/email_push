@@ -1,0 +1,9 @@
+.form-group.check_boxes.optional.email_articles
+  label.check_boxes.optional.control-label
+    | 文章  
+  - @articles.each do |article|
+    span.checkbox
+      label*{'for':"email_article_ids_#{article.id}"}
+        input.check_boxes.optional*{'type':'checkbox','value':"#{article.id}",'name':"email[article_ids][]",'id':"email_article_ids_#{article.id}"}
+        | #{article.title}
+    

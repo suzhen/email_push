@@ -6,10 +6,23 @@ class ArticlesController < ApplicationController
   
   def index
 
-    puts params
+    respond_to do |format|
 
+      if params["display"] == "mini"
 
-    @articles = Article.preload(:category).page params[:page]
+        @articles = Article.with_volume(params["volume"])
+
+        format.html { render :template => "articles/form_list.html.slim",:layout => false }
+      
+      else
+        
+        @articles = Article.preload(:category).page params[:page]
+    
+        format.html { render :template => "articles/index.html.slim" }
+
+      end
+
+    end
   end
 
   def new

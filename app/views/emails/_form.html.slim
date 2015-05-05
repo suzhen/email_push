@@ -20,8 +20,9 @@
             label*{'for':"article_volume_#{volume_id}"}
               input.radio_buttons.optional*{'type':'radio','value':"#{volume_id}",'name':'article_volume','id':"article_volume_#{volume_id}"}
                 | #{volume_id}期
-      = f.association :articles,collection:Article.with_volume(0),as: :check_boxes
-      = f.association :matrix
+      #articles
+        = f.association :articles,collection:Article.with_volume(0),as: :check_boxes
+      = f.association :matrix, include_blank: false
     = f.association :groups,as: :check_boxes
   .form-actions
     = f.button :submit 
