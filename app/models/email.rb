@@ -32,7 +32,8 @@ class Email < Base
 
     end
 
-    self.body = Liquid::Template.parse(self.matrix.content).render articles_hash.merge(category_hash)
+    self.body = (Liquid::Template.parse(self.matrix.content).render articles_hash.merge(category_hash)).gsub(/\/uploads\//, "http://cep.nandor.cn/uploads/")
+
   end
 
   before_create :generate_content
