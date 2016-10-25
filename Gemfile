@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org'
+source 'https://gems.ruby-china.org'
 
 # gem 'nokogiri','1.6.5','--use-system-libraries'
 
