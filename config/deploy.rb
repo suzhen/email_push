@@ -2,7 +2,7 @@
 lock '3.3.5'
 
 set :application, 'email_push'
-set :repo_url, 'git@gitcafe.com:sz3001/email_push.git'
+set :repo_url, 'git@github.com:suzhen/email_push.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
