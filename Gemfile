@@ -3,15 +3,16 @@ source 'https://gems.ruby-china.org'
 # gem 'nokogiri','1.6.5','--use-system-libraries'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.7'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
 #soft deleted
 gem "paranoia", "~> 2.0"
 
-gem "carrierwave"
-gem 'carrierwave-upyun'
+gem "carrierwave"#, "~> 0.11.2"
+
+gem 'carrierwave-upyun'#, "~> 0.2.1"
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
@@ -61,8 +62,6 @@ gem 'devise'
 
 gem 'thin'
 
-gem "carrierwave"
-gem 'carrierwave-upyun'
 
 #paging
 gem 'kaminari'                 
@@ -83,8 +82,8 @@ gem 'pry' , group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
-  gem 'execjs'
-  gem 'therubyracer', :platforms => :ruby
+  # gem 'execjs'
+  # gem 'therubyracer', :platforms => :ruby
 end
 
 
