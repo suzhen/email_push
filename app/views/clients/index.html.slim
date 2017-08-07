@@ -11,34 +11,38 @@
     .col-md-1
   .row
     .col-md-1
-    .col-md-10      
-      table.table.table-striped
-        thead
-          tr
-            th
-            th = Client.human_attribute_name('client.name')
-            th = Client.human_attribute_name('client.company')
-            th = Client.human_attribute_name('client.title')
-            th = Client.human_attribute_name('client.email')
-            th = Client.human_attribute_name('client.mobile')
-            th = Client.human_attribute_name('client.groups')
-            th 
-            th
-            th
-        tbody
-          - @clients.each_with_index do |client,index|
+    .col-md-10
+      form.form-inline*{'action'=>"/clients","accept-charset"=>"UTF-8","method"=>"delete"}    
+        table.table.table-striped
+          thead
             tr
-              td = (index+1)+(@clients.current_page-1)*25
-              td = client.name 
-              td = client.company
-              td = client.title
-              td = client.email
-              td = client.mobile
-              td = client.group_names
-              td = link_to '修改',edit_client_path(client)
-              td = link_to '查看',client
-              td = link_to '删除',client, :method => :delete, :data => { :confirm => '确定删除吗？' }
+              th
+                button.btn.btn-warning*{'method' => "delete", 'data' => { :confirm => '确定删除吗？' }} 删 除
+              th
+              th = Client.human_attribute_name('client.name')
+              th = Client.human_attribute_name('client.company')
+              th = Client.human_attribute_name('client.title')
+              th = Client.human_attribute_name('client.email')
+              th = Client.human_attribute_name('client.mobile')
+              th = Client.human_attribute_name('client.groups')
+              th 
+              th
+              th
+          tbody
+            - @clients.each_with_index do |client,index|
+              tr
+                td = check_box_tag 'accept[]', client.id
+                td = (index+1)+(@clients.current_page-1)*25
+                td = client.name 
+                td = client.company
+                td = client.title
+                td = client.email
+                td = client.mobile
+                td = client.group_names
+                td = link_to '修改',edit_client_path(client)
+                td = link_to '查看',client
+                td = link_to '删除',client, :method => :delete, :data => { :confirm => '确定删除吗？' }
 
-      = paginate @clients, :theme => 'twitter-bootstrap-3'
+        = paginate @clients, :theme => 'twitter-bootstrap-3'
     .col-md-1
 

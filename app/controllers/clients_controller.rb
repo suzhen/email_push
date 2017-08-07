@@ -8,7 +8,12 @@ class ClientsController < ApplicationController
       @clients = Client.in_name_or_email_or_company_or_mobile(params['keys']).preload(:groups).page params[:page]
     else
       @clients = Client.preload(:groups).page params[:page]
-    end  
+    end 
+    if params['accept'].present? && !params["accept"].empty?
+      params["accept"].each do |id|
+        Client.find(id).destroy
+      end
+    end 
   end
 
   def show
