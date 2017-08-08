@@ -1,3 +1,4 @@
+require 'roo'
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
@@ -13,7 +14,11 @@ class ClientsController < ApplicationController
       params["accept"].each do |id|
         Client.find(id).destroy
       end
-    end 
+    end
+    respond_to do |format|
+        format.html
+        format.csv { send_data @clients.to_csv}
+      end
   end
 
   def show

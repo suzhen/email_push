@@ -30,6 +30,15 @@ class Client < Base
       }.inject(:or)
   end
 
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << Client.attribute_names
+      Client.all.each do |client|
+        csv << client.attributes.values
+      end
+    end
+  end
+
   private
 
     def self.prepare_words(words)
